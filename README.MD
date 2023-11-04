@@ -1,9 +1,8 @@
 # Test Automation using Java and Selenium WebDriver
 
-**This project purpose is to present an end to end test automation**
+**The purpose of this project is to implement end-to-end test automation.**
 
 ## Languages and Frameworks
-
 This project uses the following languages and frameworks:
 
 * [Java 17](https://openjdk.java.net/projects/jdk/17/) as the programming language
@@ -15,7 +14,7 @@ This project uses the following languages and frameworks:
 
 We know that any automation project starts with a good test architecture.
 
-* [Page Objects pattern](#page-objects-pattern)
-* [BaseTest](#basetest)
-* [Configuration files](#configuration-files)
-* [Test Data Factory](#test-data-factory)
+* Page Objects pattern
+* BaseTest
+* Configuration files
+* Test Data Factory
