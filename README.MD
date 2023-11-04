@@ -15,9 +15,6 @@ This project uses the following languages and frameworks:
 
 We know that any automation project starts with a good test architecture.
 
-This project can be your initial test architecture for a faster start.
-You will see the following items in this architecture:
-
 * [Page Objects pattern](#page-objects-pattern)
 * [BaseTest](#basetest)
 * [Configuration files](#configuration-files)
