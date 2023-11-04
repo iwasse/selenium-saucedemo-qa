@@ -45,9 +45,5 @@ public class SaucedemoTest extends BaseWeb {
 
         var checkoutCompletePage = new CheckoutCompletePage(driver);
         Assert.assertEquals(checkoutCompletePage.getSuccessMessage(), "Thank you for your order!");
-
-//        products.accessMenu();
-//
-//        products.logout();
     }
 }

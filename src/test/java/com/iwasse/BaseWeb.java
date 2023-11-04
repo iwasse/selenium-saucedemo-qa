@@ -28,7 +28,7 @@ public class BaseWeb {
 
     }
 
-    //@AfterMethod
+    @AfterMethod
     public void tearDown(){
         driver.quit();
     }
