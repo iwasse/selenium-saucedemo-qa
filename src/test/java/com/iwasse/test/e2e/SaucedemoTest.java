@@ -1,6 +1,7 @@
 package com.iwasse.test.e2e;
 
 import com.iwasse.BaseWeb;
+import com.iwasse.data.CheckoutInfoDataFactory;
 import com.iwasse.page.shopping.*;
 import com.iwasse.page.login.LoginPage;
 import org.testng.Assert;
@@ -35,10 +36,8 @@ public class SaucedemoTest extends BaseWeb {
         cartPage.doCheckout();
 
         var checkoutInformationPage = new CheckoutInformationPage(driver);
-        checkoutInformationPage.fillFirstName("Guilherme");
-        checkoutInformationPage.fillLastName("de Brito Iwasse");
-        checkoutInformationPage.fillPostalCode("74015020");
-        checkoutInformationPage.clickContinue();
+        var checkoutData = CheckoutInfoDataFactory.createCheckoutInfo();
+        checkoutInformationPage.fillCheckoutInfo(checkoutData);
 
         var checkoutOverviewPage = new CheckoutOverviewPage(driver);
         checkoutOverviewPage.finishOrder();

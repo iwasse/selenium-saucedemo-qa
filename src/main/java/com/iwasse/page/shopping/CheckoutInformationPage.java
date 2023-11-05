@@ -1,5 +1,6 @@
 package com.iwasse.page.shopping;
 
+import com.iwasse.model.CheckoutData;
 import com.iwasse.page.AbstractPageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,5 +39,11 @@ public class CheckoutInformationPage extends AbstractPageObject {
 
     public void clickContinue(){
         this.continueBtn.click();
+    }
+
+    public void fillCheckoutInfo(CheckoutData info){
+        fillFirstName(info.getFirstName());
+        fillLastName(info.getLastName());
+        fillLastName(info.getZipCode());
     }
 }
