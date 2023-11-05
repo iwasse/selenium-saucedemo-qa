@@ -41,6 +41,9 @@ public class CheckoutInformationPage extends AbstractPageObject {
         this.continueBtn.click();
     }
 
+    /**
+     * @param info an object containing firstName, lastName and ZipCode
+     */
     public void fillCheckoutInfo(CheckoutData info){
         fillFirstName(info.getFirstName());
         fillLastName(info.getLastName());

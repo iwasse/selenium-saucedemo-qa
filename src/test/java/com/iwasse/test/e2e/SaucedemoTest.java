@@ -24,10 +24,12 @@ public class SaucedemoTest extends BaseWeb {
 
         //get a random product and add to cart
         var shopping = new Shopping(driver);
-        var totalItems = shopping.getItemList().size();
-        var randomItem = random.nextInt(totalItems - 1) + 1;
+        //get the total number of products of page
+        var totalProducts = shopping.getItemList().size();
+        //get a random product
+        var randomProduct = random.nextInt(totalProducts - 1) + 1;
 
-        shopping.getAddCartButtonsList().get(randomItem).click();
+        shopping.getAddCartButtonsList().get(randomProduct).click();
 
         //Access shopping cart & checkout
         shopping.accessShoppingCart();
