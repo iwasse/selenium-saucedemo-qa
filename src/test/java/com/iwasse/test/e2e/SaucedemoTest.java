@@ -38,6 +38,7 @@ public class SaucedemoTest extends BaseWeb {
         var checkoutInformationPage = new CheckoutInformationPage(driver);
         var checkoutData = CheckoutInfoDataFactory.createCheckoutInfo();
         checkoutInformationPage.fillCheckoutInfo(checkoutData);
+        checkoutInformationPage.clickContinue();
 
         var checkoutOverviewPage = new CheckoutOverviewPage(driver);
         checkoutOverviewPage.finishOrder();

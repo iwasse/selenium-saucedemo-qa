@@ -44,6 +44,6 @@ public class CheckoutInformationPage extends AbstractPageObject {
     public void fillCheckoutInfo(CheckoutData info){
         fillFirstName(info.getFirstName());
         fillLastName(info.getLastName());
-        fillLastName(info.getZipCode());
+        fillPostalCode(info.getZipCode());
     }
 }
