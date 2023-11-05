@@ -1,6 +1,7 @@
 package com.iwasse.driver;
 
 import com.iwasse.exception.BrowserNotSupportedException;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -16,16 +17,16 @@ public class DriverFactory {
 
         switch(browserType) {
             case CHROME:
-                driver = new ChromeDriver();
+                driver = WebDriverManager.chromedriver().create();
                 break;
             case FIREFOX:
-                driver = new FirefoxDriver();
+                driver = WebDriverManager.firefoxdriver().create();
                 break;
             case EDGE:
-                driver = new EdgeDriver();
+                driver = WebDriverManager.edgedriver().create();
                 break;
             case SAFARI:
-                driver = new SafariDriver();
+                driver = WebDriverManager.safaridriver().create();
                 break;
             default:
                 throw new BrowserNotSupportedException(browser);
