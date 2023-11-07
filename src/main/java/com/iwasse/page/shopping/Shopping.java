@@ -23,6 +23,9 @@ public class Shopping extends AbstractPageObject {
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a")
     WebElement shoppingCart;
 
+    @FindBy(xpath = "//*[@class=\"shopping_cart_badge\"]")
+    WebElement cartItemNumbers;
+
     public Shopping(WebDriver driver) {
         super(driver);
     }
@@ -45,6 +48,10 @@ public class Shopping extends AbstractPageObject {
 
     public void accessShoppingCart(){
         this.shoppingCart.click();
+    }
+
+    public Integer getCartNumberOfItems(){
+        return Integer.parseInt(cartItemNumbers.getText());
     }
 
 }
