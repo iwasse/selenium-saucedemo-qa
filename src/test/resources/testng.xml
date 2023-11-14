@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Saucedemo Suite">
-    <test name="Saucedemo Tests">
+    <test name="Saucedemo End to End Tests">
         <classes>
-            <class name="com.iwasse.test.e2e.SaucedemoTest"/>
+            <class name="com.iwasse.test.e2e.SaucedemoEndToEndTests"/>
+        </classes>
+    </test>
+    <test name="Saucedemo Functional Tests">
+        <classes>
+            <class name="com.iwasse.test.functional.SaucedemoFunctionalTests"/>
         </classes>
     </test>
 </suite>

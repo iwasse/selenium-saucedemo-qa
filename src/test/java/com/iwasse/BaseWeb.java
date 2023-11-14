@@ -4,8 +4,7 @@ import com.iwasse.config.Configuration;
 import com.iwasse.driver.DriverFactory;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 

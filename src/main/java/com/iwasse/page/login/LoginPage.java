@@ -18,10 +18,6 @@ public class LoginPage extends AbstractPageObject {
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        if (!driver.getTitle().equals("Swag Labs")) {
-            throw new IllegalStateException("This is not Swag Labs Page," +
-                    " current page is: " + driver.getCurrentUrl());
-        }
     }
 
     public void fillUsername(String username){

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class SaucedemoTest extends BaseWeb {
+public class SaucedemoEndToEndTests extends BaseWeb {
 
     Random random = new Random();
 

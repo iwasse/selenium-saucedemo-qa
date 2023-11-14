@@ -20,6 +20,9 @@ public class Shopping extends AbstractPageObject {
     @FindBy(xpath = "//*[@class=\"btn btn_primary btn_small btn_inventory \"]")
     List<WebElement> addCartButtonsList;
 
+    @FindBy(xpath = "//*[@class=\"btn btn_secondary btn_small btn_inventory \"]")
+    List<WebElement> removeCartButtonsList;
+
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a")
     WebElement shoppingCart;
 
@@ -46,6 +49,10 @@ public class Shopping extends AbstractPageObject {
         return this.addCartButtonsList;
     }
 
+    public List<WebElement> getRemoveCartButtonsList() {
+        return this.removeCartButtonsList;
+    }
+
     public void accessShoppingCart(){
         this.shoppingCart.click();
     }
@@ -53,5 +60,4 @@ public class Shopping extends AbstractPageObject {
     public Integer getCartNumberOfItems(){
         return Integer.parseInt(cartItemNumbers.getText());
     }
-
 }
