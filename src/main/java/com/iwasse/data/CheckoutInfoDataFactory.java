@@ -11,7 +11,7 @@ public class CheckoutInfoDataFactory {
 
     public CheckoutInfoDataFactory() {}
 
-    public static CheckoutData createCheckoutInfo(){
+    public static CheckoutData createValidCheckoutInfo(){
         return CheckoutData.builder()
                 .firstName(faker.name().firstName())
                 .lastName(faker.name().lastName())
