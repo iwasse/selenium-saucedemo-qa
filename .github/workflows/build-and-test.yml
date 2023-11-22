@@ -34,8 +34,9 @@ jobs:
       - name: Run tests in ${{ matrix.browser }}
         run: ./gradlew runTest -Dbrowser=${{ matrix.browser }}
 
+      - name: Upload test reports
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: test-reports
+          name: test-reports-${{ matrix.browser }}
           path: test-output/
