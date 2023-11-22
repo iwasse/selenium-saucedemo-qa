@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverFactory {
 
@@ -17,7 +19,6 @@ public class DriverFactory {
 
         switch (browserType) {
             case CHROME -> {
-                //driver = WebDriverManager.chromedriver().create();
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
@@ -26,15 +27,23 @@ public class DriverFactory {
                 options.addArguments("--headless");
                 driver = new ChromeDriver(options);
             }
-            case FIREFOX -> driver = WebDriverManager.firefoxdriver().create();
+            case FIREFOX -> {
+                WebDriverManager.firefoxdriver().setup();
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--headless");
+                driver = new FirefoxDriver(options);
+            }
             case EDGE -> {
                 WebDriverManager.edgedriver().setup();
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--remote-allow-origins=*");
-                edgeOptions.addArguments("--no-sandbox");
-                edgeOptions.addArguments("--disable-dev-shm-usage");
-                edgeOptions.addArguments("--headless");
-                driver = new EdgeDriver(edgeOptions);
+                EdgeOptions options = new EdgeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--headless");
+                driver = new EdgeDriver(options);
             }
             case SAFARI -> driver = WebDriverManager.safaridriver().create();
             default -> throw new BrowserNotSupportedException(browser);

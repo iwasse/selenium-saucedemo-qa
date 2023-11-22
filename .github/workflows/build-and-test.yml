@@ -7,6 +7,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [ 'chrome', 'firefox', 'edge' ]
     steps:
       - uses: actions/checkout@v4
 
@@ -29,8 +33,5 @@ jobs:
       - name: Run build with Gradle Wrapper
         run: ./gradlew build
 
-      - name: Run Tests in Chrome
-        run: ./gradlew runTest -Dbrowser=chrome
-
-      - name: Run Tests in Edge
-        run: ./gradlew runTest -Dbrowser=edge
+      - name: Run tests in different browsers
+        run: ./gradlew runTest -Dbrowser=${{ matrix.browser }}
