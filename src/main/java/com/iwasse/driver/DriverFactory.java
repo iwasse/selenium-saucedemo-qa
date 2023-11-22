@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 public class DriverFactory {
 
@@ -16,8 +15,8 @@ public class DriverFactory {
 
         BrowserList browserType = BrowserList.valueOf(browser.toUpperCase());
 
-        switch(browserType) {
-            case CHROME:
+        switch (browserType) {
+            case CHROME -> {
                 //driver = WebDriverManager.chromedriver().create();
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
@@ -26,18 +25,19 @@ public class DriverFactory {
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--headless");
                 driver = new ChromeDriver(options);
-                break;
-            case FIREFOX:
-                driver = WebDriverManager.firefoxdriver().create();
-                break;
-            case EDGE:
-                driver = WebDriverManager.edgedriver().create();
-                break;
-            case SAFARI:
-                driver = WebDriverManager.safaridriver().create();
-                break;
-            default:
-                throw new BrowserNotSupportedException(browser);
+            }
+            case FIREFOX -> driver = WebDriverManager.firefoxdriver().create();
+            case EDGE -> {
+                WebDriverManager.edgedriver().setup();
+                EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.addArguments("--remote-allow-origins=*");
+                edgeOptions.addArguments("--no-sandbox");
+                edgeOptions.addArguments("--disable-dev-shm-usage");
+                edgeOptions.addArguments("--headless");
+                driver = new EdgeDriver(edgeOptions);
+            }
+            case SAFARI -> driver = WebDriverManager.safaridriver().create();
+            default -> throw new BrowserNotSupportedException(browser);
         }
 
         return driver;

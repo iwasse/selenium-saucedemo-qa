@@ -31,3 +31,6 @@ jobs:
 
       - name: Run Tests in Chrome
         run: ./gradlew runTest -Dbrowser=chrome
+
+      - name: Run Tests in Edge
+        run: ./gradlew runTest -Dbrowser=edge
