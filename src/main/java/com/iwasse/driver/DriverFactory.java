@@ -4,6 +4,7 @@ import com.iwasse.exception.BrowserNotSupportedException;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -17,7 +18,14 @@ public class DriverFactory {
 
         switch(browserType) {
             case CHROME:
-                driver = WebDriverManager.chromedriver().create();
+                //driver = WebDriverManager.chromedriver().create();
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--headless");
+                driver = new ChromeDriver(options);
                 break;
             case FIREFOX:
                 driver = WebDriverManager.firefoxdriver().create();
