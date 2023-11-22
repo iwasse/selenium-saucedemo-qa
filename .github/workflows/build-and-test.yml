@@ -9,17 +9,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: 17
           distribution: temurin
           cache: gradle
+
+      - name: Install Google Chrome
+        run: |
+            chmod +x ./scripts/InstallChrome.sh
+            ./scripts/InstallChrome.sh
+
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+
       - name: Change permission
         run: chmod +x gradlew
+
       - name: Run build with Gradle Wrapper
         run: ./gradlew build
+
       - name: Run Tests in Edge
         run: ./gradlew runTest -Dbrowser=edge
