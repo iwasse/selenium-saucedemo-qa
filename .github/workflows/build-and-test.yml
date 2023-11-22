@@ -21,5 +21,5 @@ jobs:
         run: chmod +x gradlew
       - name: Run build with Gradle Wrapper
         run: ./gradlew build
-      - name: Run Tests
-        run: ./gradlew runTest
+      - name: Run Tests in Edge
+        run: ./gradlew runTest -Dbrowser=edge
