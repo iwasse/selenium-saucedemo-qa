@@ -21,9 +21,6 @@ jobs:
           distribution: temurin
           cache: gradle
 
-      - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
-
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
