@@ -6,6 +6,7 @@ on:
 
 jobs:
   test:
+    name: Automated tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -24,11 +25,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      - name: Change permission
+      - name: Grant permission
         run: chmod +x gradlew
 
       - name: Run build with Gradle Wrapper
         run: ./gradlew build
 
-      - name: Run tests in different browsers
+      - name: Run tests in ${{ matrix.browser }}
         run: ./gradlew runTest -Dbrowser=${{ matrix.browser }}
