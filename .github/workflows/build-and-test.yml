@@ -17,7 +17,9 @@ jobs:
           cache: gradle
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+      - name: Change permission
+        run: chmod +x gradlew
       - name: Run build with Gradle Wrapper
-        run: chmod +x ./gradlew build
+        run: ./gradlew build
       - name: Run Tests
         run: ./gradlew runTest
