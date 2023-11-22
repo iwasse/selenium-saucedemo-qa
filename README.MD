@@ -13,8 +13,16 @@ This project uses the following languages and frameworks:
 ## Test architecture
 
 We know that any automation project starts with a good test architecture.
+You will see the following items in this architecture:
 
 * Page Objects pattern
 * BaseTest
 * Configuration files
 * Test Data Factory
+
+## Pipeline as code
+I'm using GitHub Actions to run the tests in pipeline
+* Workflow file is located at `.github/workflows`, it builds and execute the tests in three different browsers in parallel
+    * CHROME
+    * EDGE
+    * FIREFOX
