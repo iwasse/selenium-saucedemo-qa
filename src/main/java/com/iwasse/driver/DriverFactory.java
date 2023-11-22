@@ -30,7 +30,6 @@ public class DriverFactory {
             case FIREFOX -> {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions options = new FirefoxOptions();
-                options.addArguments("--remote-allow-origins=*");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--headless");
