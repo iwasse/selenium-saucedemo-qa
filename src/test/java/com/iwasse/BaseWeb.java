@@ -8,6 +8,7 @@ import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
+@Listeners({TestListener.class})
 public class BaseWeb {
 
     protected WebDriver driver;
