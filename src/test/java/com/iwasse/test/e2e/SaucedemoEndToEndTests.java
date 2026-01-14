@@ -32,7 +32,7 @@ public class SaucedemoEndToEndTests extends BaseWeb {
         shopping.getAddCartButtonsList().get(randomProduct).click();
 
         //Assert if number of items in cart is correct
-        Assert.assertEquals(1, shopping.getCartNumberOfItems());
+        Assert.assertEquals(shopping.getCartNumberOfItems(), 1);
 
         //Access shopping cart & checkout
         shopping.accessShoppingCart();

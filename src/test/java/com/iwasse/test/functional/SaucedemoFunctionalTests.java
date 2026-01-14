@@ -34,7 +34,7 @@ public class SaucedemoFunctionalTests extends BaseWeb {
         shopping.getAddCartButtonsList().get(randomProduct).click();
 
         //Assert if number of items in cart is correct
-        Assert.assertEquals(1, shopping.getCartNumberOfItems());
+        Assert.assertEquals(shopping.getCartNumberOfItems(), 1);
     }
     @Test
     public void givenItemInCart_whenRemoved_thenCartShouldBeEmpty(){
@@ -49,7 +49,7 @@ public class SaucedemoFunctionalTests extends BaseWeb {
         shopping.getAddCartButtonsList().get(randomProduct).click();
 
         //Assert if number of items in cart is correct
-        Assert.assertEquals(1, shopping.getCartNumberOfItems());
+        Assert.assertEquals(shopping.getCartNumberOfItems(), 1);
 
         shopping.getRemoveCartButtonsList().forEach(WebElement::click);
 

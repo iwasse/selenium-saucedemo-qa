@@ -10,24 +10,23 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.seleniumhq.selenium:selenium-java:4.12.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.39.0'
     implementation 'org.testng:testng:7.8.0'
     implementation 'org.aeonbits.owner:owner:1.0.12'
     implementation 'net.datafaker:datafaker:2.0.1'
-    implementation 'io.github.bonigarcia:webdrivermanager:5.6.0'
-    implementation 'org.apache.logging.log4j:log4j-api:2.22.0'
-    implementation 'org.apache.logging.log4j:log4j-core:2.22.0'
+    implementation 'io.github.bonigarcia:webdrivermanager:6.3.3'
+    implementation 'org.apache.logging.log4j:log4j-api:2.24.3'
+    implementation 'org.apache.logging.log4j:log4j-core:2.25.3'
     //implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.12.4'
 
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
-    testCompileOnly 'org.projectlombok:lombok:1.18.30'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.projectlombok:lombok:1.18.42'
+    annotationProcessor 'org.projectlombok:lombok:1.18.42'
+    testCompileOnly 'org.projectlombok:lombok:1.18.42'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
 }
 
-task runTest(type: Test){
-    systemProperties System.getProperties()
-    useTestNG(){
+tasks.test {
+    useTestNG() {
         outputDirectory = file("test-output")
         useDefaultListeners = true
         suites 'src/test/resources/testng.xml'

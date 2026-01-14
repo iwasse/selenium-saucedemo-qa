@@ -10,6 +10,8 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.util.Map;
+
 public class DriverFactory {
 
     public WebDriver createInstance(String browser) {
@@ -19,11 +21,17 @@ public class DriverFactory {
 
         switch (browserType) {
             case CHROME -> {
+                Map<String, Object> prefs = Map.of(
+                        "credentials_enable_service", false, // disable password manager
+                        "profile.password_manager_enabled", false, // disable password manager
+                        "profile.password_manager_leak_detection", false //disable password manager
+                );
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
+                options.setExperimentalOption("prefs", prefs);
                 options.addArguments("--headless");
                 driver = new ChromeDriver(options);
             }
